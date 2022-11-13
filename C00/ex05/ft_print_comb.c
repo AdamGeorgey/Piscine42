@@ -12,19 +12,24 @@ void        ft_putstr_comb(char *s)
     write(1, ", ", 2);
 }
 
-void        ft_print_comb(void)
+void        ft_init(char s[4])
 {
-    char s[4];
-    
     s[0] = '0';
     s[1] = '1';
     s[2] = '2';
     s[3] = '\0';
+}
+
+void        ft_print_comb(void)
+{
+    char    s[4];
+    
+    ft_init(s);
     while (s[0] < '7')
     {
-        while (s[1] < '8')
+        while (s[1] <= '8')
         {
-            while (s[2] < '9')
+            while (s[2] <= '9')
             {
                 ft_putstr_comb(s);
                 s[2]++;
