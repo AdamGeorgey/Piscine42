@@ -43,6 +43,9 @@ void        ft_print_comb2(void)
         }
         b = ++a + 1;
     }
+    ft_putcomb(a);
+    ft_putchar(' ');
+    ft_putcomb(b);
 }
 
 int     main()
