@@ -23,6 +23,7 @@ void        ft_putnbr(int nb)
 
 void        ft_print_combn(int nb)
 {
-    if (nb == 0)
+    if (nb == 1)
         ft_putchar('0');
+    
 }
