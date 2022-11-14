@@ -47,9 +47,3 @@ void        ft_print_comb2(void)
     ft_putchar(' ');
     ft_putcomb(b);
 }
-
-int     main()
-{
-    ft_print_comb2();
-    return (0);
-}
