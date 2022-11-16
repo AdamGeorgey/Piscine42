@@ -6,22 +6,6 @@ void        ft_putchar(char c)
     write(1, &c, 1);
 }
 
-void        ft_putnbr(int nb)
-{
-    if (nb < 0)
-    {
-        nb = -nb;
-        ft_putchar('-');
-    }
-    if (nb > 9)
-    {
-        ft_putnbr(nb / 10);
-        ft_putnbr(nb % 10);
-    }
-    else
-        ft_putchar(nb + '0');
-}
-
 void        ft_inittab(int tab[], int n)
 {
     int     i;
@@ -39,10 +23,30 @@ void        ft_puttab(int tab[], int n)
     
     i = 0;
     while (i < n)
-    {
-        ft_putnbr(tab[i++]);
+        ft_putchar(tab[i++] + '0');
+    if (tab[0] < 10 - n)
         write(1, ", ", 2);
-    }
+}
+
+void        ft_decale(int tab[], int n)
+{
+    int     i;
+    int     j;
+    
+    i = n - 1;
+    j = 10;
+    while (tab[i] == j)
+	{
+		i--;
+		j--;
+	}
+	tab[i]++;
+	while (i < n)
+	{
+		tab[i + 1] = tab[i] + 1;
+		i++;
+	}
+
 }
 
 void        ft_print_combn(int n)
@@ -54,18 +58,14 @@ void        ft_print_combn(int n)
     i = 1;
     j = n - 1;
     ft_inittab(tab, n);
-    while (tab[0] < 10 - n)
+    while (tab[0] <= 10 - n)
     {
-        while (tab[j] <= 10 - i)
+        if (tab[j] <= 10 - i)
         {
             ft_puttab(tab, n);
             tab[j]++;
         }
+        else
+            ft_decale(tab, n);
     }
-}
-
-int         main()
-{
-    ft_print_combn(1);
-    return (0);
 }
