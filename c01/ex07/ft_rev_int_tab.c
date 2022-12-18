@@ -1,10 +1,12 @@
 #include    <stdio.h>
 
-void        ft_swap(int *a, int *b)
+void        ft_swap(int* a, int* b)
 {
-    *a = *a + *b;
-    *b = *a - *b;
-    *a = *a - *b;
+    int temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 void        ft_rev_int_tab(int *tab, int size)
